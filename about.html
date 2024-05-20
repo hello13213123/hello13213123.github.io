@@ -214,6 +214,108 @@
         .card:hover {
             animation: pulse 1s infinite;
         }
+        .content-section {
+            padding: 20px;
+            animation: fadeInText 3s ease-in-out;
+        }
+        .content-section:nth-child(even) {
+            background-color: #444;
+        }
+        .content-section:nth-child(odd) {
+            background-color: #555;
+        }
+        .content-section h3 {
+            color: #ff9900;
+            animation: slideInLeft 1s ease-in-out;
+        }
+        .content-section p {
+            color: #e0e0e0;
+            animation: fadeInText 2s ease-in-out;
+        }
+        .content-section img {
+            border: 5px solid #ff9900;
+            animation: zoomInOut 2s infinite;
+        }
+        .additional-info {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .highlight {
+            color: #ff9900;
+            font-weight: bold;
+            animation: flash 2s infinite;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            animation: slideInRight 2s ease-in-out;
+        }
+        .stats .stat {
+            background: #333;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            animation: zoomIn 1s ease-in-out;
+        }
+        .stats .stat h4 {
+            margin: 0;
+            color: #ff9900;
+        }
+        .stats .stat p {
+            margin: 10px 0 0;
+            color: #e0e0e0;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff9900;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+        .cta-button:hover {
+            background: #e68a00;
+        }
+        .faq {
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+            padding: 20px;
+            animation: slideUp 2s ease-in-out;
+        }
+        .faq h2 {
+            color: #ff9900;
+        }
+        .faq ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .faq li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #333;
+            border-radius: 5px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .faq li:hover {
+            background: #444;
+        }
+        .faq .question {
+            color: #fff;
+            font-weight: bold;
+        }
+        .faq .answer {
+            color: #e0e0e0;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body class="moving-bg">
@@ -252,6 +354,64 @@
                 <div class="disclaimer">
                     <p>Using aimbots or any other cheats is against the terms of service of most games, including CS2. This can result in your account being banned. Always play fair and respect the gaming community.</p>
                 </div>
+            </div>
+
+            <div class="content-section">
+                <h3>Why Choose Our Aimbot?</h3>
+                <p>Our aimbot stands out because of its reliability and accuracy. Designed by experts, it offers an edge that is crucial for competitive gaming.</p>
+                <img src="https://via.placeholder.com/400x200" alt="Aimbot Example">
+            </div>
+
+            <div class="content-section">
+                <h3>Compatibility</h3>
+                <p>Our aimbot is compatible with various systems and can be easily integrated into your gaming setup. Whether you use Windows or macOS, our software is designed to perform seamlessly.</p>
+                <img src="https://via.placeholder.com/400x200" alt="Compatibility">
+            </div>
+
+            <div class="content-section">
+                <h3>Security</h3>
+                <p>We prioritize security to ensure that your account remains safe. Our aimbot is built to be undetectable by the latest anti-cheat systems.</p>
+                <img src="https://via.placeholder.com/400x200" alt="Security">
+            </div>
+
+            <div class="additional-info">
+                <h3>Additional Information</h3>
+                <p>For any queries or support, please contact our <span class="highlight">24/7 customer service</span>. We are here to assist you at any time.</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <h4>100+</h4>
+                    <p>Satisfied Customers</p>
+                </div>
+                <div class="stat">
+                    <h4>50+</h4>
+                    <p>Supported Games</p>
+                </div>
+                <div class="stat">
+                    <h4>5</h4>
+                    <p>Years of Experience</p>
+                </div>
+            </div>
+
+            <a href="#" class="cta-button">Get Started</a>
+
+            <div class="faq">
+                <h2>FAQ</h2>
+                <ul>
+                    <li>
+                        <div class="question">What is an aimbot?</div>
+                        <div class="answer">An aimbot is a type of software used in video games to automatically aim at targets, providing players with enhanced accuracy.</div>
+                    </li>
+                    <li>
+                        <div class="question">Is using an aimbot legal?</div>
+                        <div class="answer">Using an aimbot is against the terms of service of most games and can result in your account being banned. Always play fair.</div>
+                    </li>
+                    <li>
+                        <div class="question">How do I install the aimbot?</div>
+                        <div class="answer">Installation instructions will be provided upon purchase. Our support team is also available to assist you with the setup.</div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
