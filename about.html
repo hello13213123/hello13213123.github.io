@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
+            background-color: #121212;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -51,6 +51,10 @@
             bottom: 0;
             width: 100%;
             animation: slideUp 1s ease-in-out;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); }
+            to { transform: translateY(0); }
         }
         h1, h2 {
             margin-top: 0;
@@ -152,36 +156,102 @@
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0); }
         }
+        .rainbow-text {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: rainbow 5s ease-in-out infinite;
+        }
+        @keyframes rainbow {
+            0%, 100% { background-position: 0 0; }
+            50% { background-position: 100% 0; }
+        }
+        .neon {
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #00ff00,
+                0 0 30px #00ff00,
+                0 0 40px #00ff00,
+                0 0 50px #00ff00,
+                0 0 60px #00ff00,
+                0 0 70px #00ff00;
+        }
+        .moving-bg {
+            background: linear-gradient(270deg, #ff0000, #ff9900, #ffff00, #33cc33, #0066ff, #6600cc);
+            background-size: 1200% 1200%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .rotate-3d {
+            perspective: 500px;
+        }
+        .rotate-3d:hover {
+            animation: rotate3d 2s infinite;
+        }
+        @keyframes rotate3d {
+            0% { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+            animation: zoomIn 2s ease-in-out;
+        }
+        .card:hover {
+            animation: pulse 1s infinite;
+        }
     </style>
 </head>
-<body>
+<body class="moving-bg">
 
     <div class="header">
-        <h1 class="bounce">CS2 Aimbot - Precision Redefined</h1>
+        <h1 class="neon">CS2 Aimbot - Precision Redefined</h1>
     </div>
 
     <div class="container">
         <div class="content">
-            <h2 class="slideInLeft">Introduction</h2>
+            <h2 class="rainbow-text slideInLeft">Introduction</h2>
             <p class="fadeInText">Welcome to the ultimate CS2 Aimbot, designed to enhance your gaming experience with unparalleled precision and performance. Our aimbot is engineered for gamers who seek the best in competitive gameplay.</p>
             
-            <h2 class="slideInRight">Features</h2>
-            <ul>
-                <li class="fadeInText"><strong>High Precision:</strong> Our aimbot ensures pinpoint accuracy, giving you an edge over your opponents.</li>
-                <li class="fadeInText"><strong>Customizable Settings:</strong> Tailor the aimbot to your playstyle with various adjustable settings.</li>
-                <li class="fadeInText"><strong>Undetectable:</strong> Designed to be undetectable by anti-cheat systems, ensuring safe usage.</li>
-                <li class="fadeInText"><strong>Easy to Use:</strong> User-friendly interface allows for quick setup and operation.</li>
-            </ul>
+            <div class="card">
+                <h2 class="slideInRight">Features</h2>
+                <ul>
+                    <li class="fadeInText"><strong>High Precision:</strong> Our aimbot ensures pinpoint accuracy, giving you an edge over your opponents.</li>
+                    <li class="fadeInText"><strong>Customizable Settings:</strong> Tailor the aimbot to your playstyle with various adjustable settings.</li>
+                    <li class="fadeInText"><strong>Undetectable:</strong> Designed to be undetectable by anti-cheat systems, ensuring safe usage.</li>
+                    <li class="fadeInText"><strong>Easy to Use:</strong> User-friendly interface allows for quick setup and operation.</li>
+                </ul>
+            </div>
 
-            <h2 class="slideInLeft">How It Works</h2>
-            <p class="fadeInText">The CS2 Aimbot uses advanced algorithms to track and lock onto targets with incredible speed and accuracy. With customizable settings, you can adjust the aimbot's sensitivity, target area, and more to suit your preferences.</p>
+            <div class="card">
+                <h2 class="slideInLeft">How It Works</h2>
+                <p class="fadeInText">The CS2 Aimbot uses advanced algorithms to track and lock onto targets with incredible speed and accuracy. With customizable settings, you can adjust the aimbot's sensitivity, target area, and more to suit your preferences.</p>
+            </div>
             
-            <h2 class="slideInRight">Gallery</h2>
-            <img src="https://valorantinfo.com/images/jett.png" alt="Aimbot Image" class="zoomInOut">
+            <div class="card">
+                <h2 class="slideInRight">Gallery</h2>
+                <img src="https://valorantinfo.com/images/jett.png" alt="Aimbot Image" class="zoomInOut rotate-3d">
+            </div>
             
-            <h2 class="slideInLeft">Disclaimer</h2>
-            <div class="disclaimer">
-                <p>Using aimbots or any other cheats is against the terms of service of most games, including CS2. This can result in your account being banned. Always play fair and respect the gaming community.</p>
+            <div class="card">
+                <h2 class="slideInLeft">Disclaimer</h2>
+                <div class="disclaimer">
+                    <p>Using aimbots or any other cheats is against the terms of service of most games, including CS2. This can result in your account being banned. Always play fair and respect the gaming community.</p>
+                </div>
             </div>
         </div>
     </div>
