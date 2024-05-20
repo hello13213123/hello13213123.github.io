@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <title>
+        LeaderBoard
+    </title>
+
+    <body>
+        <button onclick="loadStats()">
+            hi
+        </button>
+        <h2>
+            LeaderBoard
+        </h2>
+
+        <div>
+            <table id="main">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+            <tbody>
+
+            </tbody>
+            </table>
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    column1
+                    column2
+                    column3
+                </td>
+                Row1
+            </tr>
+            <tr>
+                <td>
+                    column1
+                    column2
+                    column3
+                </td>
+                Row2
+            </tr>
+        </table>
+        Hello!
+        
+    </body>
+<script>
+    async function loadStats(){
+        var stats = await fetch('stats.csv');
+        var data = await stats.text();
+        var rows = data.split("\n").map(row => row.split(","));
+        console.log(rows[1]);
+        var main = document.getElementById('main').getElementsByTagName("tbody")[0];
+        // main.innerText = rows[1];
+        rows.forEach((row, index) => {
+            var [name,score] = row;
+            var rank = index + 1;
+            var newRow = `
+                <tr>
+                    <td>${rank}</td>
+                    <td)${name}</td>
+                    <td)${score}</td>
+                </tr>
+            `
+        });
+        main.insertAdjacentHTML('beforeend', newRow);
+    }
+    
+</script>
+
+</head>
+
+</html>
