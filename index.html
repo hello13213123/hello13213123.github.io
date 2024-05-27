@@ -1,85 +1,99 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-    <title>
-        LeaderBoard
-    </title>
-
-    <body>
-        <form action = "about.html">
-            <button on>
-        
-            </button>
-        </form>
-        
-
-        <button onclick="loadStats()">
-            hi
-        </button>
-        <h2>
-            LeaderBoard
-        </h2>
-
-        <div>
-            <table id="main">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-            <tbody>
-
-            </tbody>
-            </table>
-        </div>
-
-        <table>
-            <tr>
-                <td>
-                    column1
-                    column2
-                    column3
-                </td>
-                Row1
-            </tr>
-            <tr>
-                <td>
-                    column1
-                    column2
-                    column3
-                </td>
-                Row2
-            </tr>
-        </table>
-        Hello!
-        
-    </body>
-<script>
-    async function loadStats(){
-        var stats = await fetch('stats.csv');
-        var data = await stats.text();
-        var rows = data.split("\n").map(row => row.split(","));
-        console.log(rows[1]);
-        var main = document.getElementById('main').getElementsByTagName("tbody")[0];
-        // main.innerText = rows[1];
-        rows.forEach((row, index) => {
-            var [name,score] = row;
-            var rank = index + 1;
-            var newRow = `
-                <tr>
-                    <td>${rank}</td>
-                    <td)${name}</td>
-                    <td)${score}</td>
-                </tr>
-            `
-        });
-        main.insertAdjacentHTML('beforeend', newRow);
-    }
-    
-</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSGO Cheat Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+        .leaderboard-img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .leaderboard-gif {
+            width: 400px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
+<body>
+    <img src="leaderboard-logo.png" alt="Leaderboard Logo" class="leaderboard-img">
+    <h2>CSGO Cheat Leaderboard</h2>
 
+    <img src="/mnt/data/csgo-clean.gif" alt="CSGO Gameplay" class="leaderboard-gif">
+
+    <form action="page2.html">
+        <button type="submit">Go to Page 2</button>
+    </form>
+
+    <button onclick="loadStats()">Load Stats</button>
+
+    <div>
+        <table id="main">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadStats() {
+            try {
+                const response = await fetch('stats.csv');
+                const data = await response.text();
+                const rows = data.trim().split('\n').map(row => row.split(','));
+
+                const tbody = document.getElementById('main').getElementsByTagName('tbody')[0];
+                tbody.innerHTML = ''; // Clear existing rows
+
+                rows.forEach((row, index) => {
+                    const [name, score, imageUrl] = row;
+                    const rank = index + 1;
+                    const newRow = `
+                        <tr>
+                            <td>${rank}</td>
+                            <td>${name}</td>
+                            <td>${score}</td>
+                            <td><img src="${imageUrl}" alt="${name}'s Image"></td>
+                        </tr>
+                    `;
+                    tbody.insertAdjacentHTML('beforeend', newRow);
+                });
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+    </script>
+</body>
 </html>
