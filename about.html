@@ -271,6 +271,8 @@
             <div class="card">
                 <h2 class="slideInRight">Gallery</h2>
                 <img src="https://valorantinfo.com/images/jett.png" alt="Aimbot Image" class="zoomIn">
+                <img src="截屏2024-05-27 下午7.28.30.png" alt="Gameplay Image 1" class="zoomIn">
+                <img src="截屏2024-05-27 下午7.28.45.png" alt="Gameplay Image 2" class="zoomIn">
             </div>
             
             <div class="card">
@@ -343,6 +345,34 @@
     <div class="footer">
         <p>&copy; 2024 CS2 Aimbot. All rights reserved.</p>
     </div>
+
+    <script>
+        async function loadStats() {
+            try {
+                const response = await fetch('stats.csv');
+                const data = await response.text();
+                const rows = data.trim().split('\n').map(row => row.split(','));
+
+                const tbody = document.getElementById('main').getElementsByTagName('tbody')[0];
+                tbody.innerHTML = ''; // Clear existing rows
+
+                rows.forEach((row, index) => {
+                    const [name, score] = row;
+                    const rank = index + 1;
+                    const newRow = `
+                        <tr>
+                            <td>${rank}</td>
+                            <td>${name}</td>
+                            <td>${score}</td>
+                        </tr>
+                    `;
+                    tbody.insertAdjacentHTML('beforeend', newRow);
+                });
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+    </script>
 
 </body>
 </html>
